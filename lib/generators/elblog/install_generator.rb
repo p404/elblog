@@ -2,7 +2,7 @@ module Elblog
   module Generators
     class InstallGenerator < Rails::Generators::Base
       source_root File.expand_path('../templates', __FILE__)
-      argument :mount_path, :type => :string, :default => "/blog"
+      argument :mount_path, :type => :string, :default => "/elblog"
       
       def add_routes
         route "mount Elblog::Engine => '#{mount_path}'"
