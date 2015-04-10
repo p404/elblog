@@ -2,8 +2,9 @@ require_dependency "elblog/application_controller"
 
 module Elblog
   class PostsController < ApplicationController
+    http_basic_authenticate_with name: Elblog.elblog_name, password: Elblog.elblog_password, except: [:index, :show]
     before_action :set_post, only: [:show, :edit, :update, :destroy]
-
+    
     # GET /posts
     def index
       @posts = Post.all
