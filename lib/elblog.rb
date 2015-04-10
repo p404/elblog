@@ -15,4 +15,9 @@ module Elblog
   def self.elblog_password
     @@elblog_password
   end
+  
+  mattr_accessor :elblog_discuss_shortname
+  def self.elblog_discuss_shortname
+    @@elblog_discuss_shortname
+  end
 end

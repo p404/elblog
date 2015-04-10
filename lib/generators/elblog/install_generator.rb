@@ -9,6 +9,10 @@ module Elblog
         @elblog_password = ask("Ingrese password: ")
       end
       
+      def elblog_discuss_shortname
+        @elblog_discuss_shortname = ask("Ingrese su Discuss Shortname: ")
+      end
+      
       def add_routes
         route "mount Elblog::Engine => '#{mount_path}'"
       end
