@@ -1,0 +1,63 @@
+<%= form_for(@post) do |f| %>
+  <% if @post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% @post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :content %><br>
+    <%= f.bootsy_area :content, class: 'form-control', rows: 12 %>
+    
+  </div>
+  <div class="field">
+    <%= f.label :author %><br>
+    <%= f.text_field :author %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+<script type="text/javascript">
+Bootsy.Area.prototype.setImageGallery = function() {
+  this.showGalleryLoadingAnimation();
+
+  $.ajax({
+    url: '<%= Elblog.elblog_path %>'+'/bootsy/images',
+    type: 'GET',
+    cache: false,
+    data: {
+      image_gallery_id: this.modal.data('gallery-id')
+    },
+    dataType: 'json',
+    success: function(data) {
+      this.hideRefreshButton();
+      this.hideGalleryLoadingAnimation();
+      this.find('.bootsy-gallery .bootsy-image').remove();
+
+      $.each(data.images, function(index, value) {
+        this.addImage(value);
+      }.bind(this));
+
+      if (data.images.length === 0) {
+        this.showEmptyAlert();
+      }
+
+      this.setUploadForm(data.form);
+
+      this.modal.data('gallery-loaded', true);
+    }.bind(this),
+    error: this.imageUploadFailed.bind(this)
+  });
+};
+</script>
