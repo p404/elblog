@@ -1,4 +1,7 @@
-# Elblog
+<p align="center">
+    <img src="http://www.lataco.com/wp-content/uploads/15askamexican.jpg" width="190px"/>
+</p>
+
 *Elblog* es un blog minimo hecho desde un rails engine, que usa las siguientes gemas: 
 
 [Bootsy](https://github.com/volmer/bootsy)
