@@ -1,5 +1,5 @@
 # Elblog
-*Elblog* es un blog hecho desde un rails engine que usa las siguientes gemas: 
+*Elblog* es un blog minimo hecho desde un rails engine, que usa las siguientes gemas: 
 
 [Bootsy](https://github.com/volmer/bootsy)
 [Bootstrap-wysihtml5](https://github.com/jhollingworth/bootstrap-wysihtml5)
