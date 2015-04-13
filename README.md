@@ -33,3 +33,8 @@
   rake elblog:install:migrations
   rake db:migrate
   ```
+5. Si deseas personalizar las vistas ejecuta este comando 
+  ```console
+  rails generate elblog:views
+  ```
+  Esta comando copiará las vistas show, edit, index, new y form dentro de la carpeta app/views de tu aplicación
