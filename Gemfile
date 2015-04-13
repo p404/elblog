@@ -6,10 +6,21 @@ source 'https://rubygems.org'
 gemspec
 
 
-gem "rspec-rails"
-gem "factory_girl_rails"
-gem "byebug"
-gem "ffaker"
+group :development, :test do
+  # Use debugger
+  gem 'byebug'
+
+  # test
+  gem 'rspec-rails'
+
+  # permite crear datos para los test
+  gem 'factory_girl'
+
+  # helper para los test
+  gem 'shoulda-matchers', require: false
+
+  gem 'ffaker'
+end
 
 # Declare any dependencies that are still in development here instead of in
 # your gemspec. These might include edge Rails or gems from your path or

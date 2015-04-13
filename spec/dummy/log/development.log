@@ -20441,3 +20441,332 @@ Migrating to CreateElblogComments (20150413140422)
   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150413140422"]]
   [1m[35m (1.2ms)[0m  commit transaction
   [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/elblog/posts" for 127.0.0.1 at 2015-04-13 12:20:38 -0300
+Processing by Elblog::PostsController#index as HTML
+  [1m[36mElblog::Post Load (0.4ms)[0m  [1mSELECT "elblog_posts".* FROM "elblog_posts"[0m
+SQLite3::SQLException: no such table: elblog_posts: SELECT "elblog_posts".* FROM "elblog_posts"
+  Rendered /Users/elam/wwww/elblog/app/views/elblog/posts/index.html.erb within layouts/elblog/application (28.7ms)
+Completed 500 Internal Server Error in 73ms (ActiveRecord: 0.4ms)
+
+ActionView::Template::Error (SQLite3::SQLException: no such table: elblog_posts: SELECT "elblog_posts".* FROM "elblog_posts"):
+    13:   </thead>
+    14: 
+    15:   <tbody>
+    16:     <% @posts.each do |post| %>
+    17:       <tr>
+    18:         <td><%= post.title %></td>
+    19:         <td><%= post.content.html_safe %></td>
+  sqlite3 (1.3.10) lib/sqlite3/database.rb:91:in `initialize'
+  sqlite3 (1.3.10) lib/sqlite3/database.rb:91:in `new'
+  sqlite3 (1.3.10) lib/sqlite3/database.rb:91:in `prepare'
+  activerecord (4.2.1) lib/active_record/connection_adapters/sqlite3_adapter.rb:296:in `block in exec_query'
+  activerecord (4.2.1) lib/active_record/connection_adapters/abstract_adapter.rb:473:in `block in log'
+  activesupport (4.2.1) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activerecord (4.2.1) lib/active_record/connection_adapters/abstract_adapter.rb:467:in `log'
+  activerecord (4.2.1) lib/active_record/connection_adapters/sqlite3_adapter.rb:293:in `exec_query'
+  activerecord (4.2.1) lib/active_record/connection_adapters/abstract/database_statements.rb:347:in `select'
+  activerecord (4.2.1) lib/active_record/connection_adapters/abstract/database_statements.rb:32:in `select_all'
+  activerecord (4.2.1) lib/active_record/connection_adapters/abstract/query_cache.rb:68:in `block in select_all'
+  activerecord (4.2.1) lib/active_record/connection_adapters/abstract/query_cache.rb:83:in `cache_sql'
+  activerecord (4.2.1) lib/active_record/connection_adapters/abstract/query_cache.rb:68:in `select_all'
+  activerecord (4.2.1) lib/active_record/querying.rb:39:in `find_by_sql'
+  activerecord (4.2.1) lib/active_record/relation.rb:638:in `exec_queries'
+  activerecord (4.2.1) lib/active_record/relation.rb:514:in `load'
+  activerecord (4.2.1) lib/active_record/relation.rb:243:in `to_a'
+  activerecord (4.2.1) lib/active_record/relation/delegation.rb:46:in `each'
+  /Users/elam/wwww/elblog/app/views/elblog/posts/index.html.erb:16:in `___sers_elam_wwww_elblog_app_views_elblog_posts_index_html_erb___4180406050188909702_70093475362200'
+  actionview (4.2.1) lib/action_view/template.rb:145:in `block in render'
+  activesupport (4.2.1) lib/active_support/notifications.rb:166:in `instrument'
+  actionview (4.2.1) lib/action_view/template.rb:333:in `instrument'
+  actionview (4.2.1) lib/action_view/template.rb:143:in `render'
+  actionview (4.2.1) lib/action_view/renderer/template_renderer.rb:54:in `block (2 levels) in render_template'
+  actionview (4.2.1) lib/action_view/renderer/abstract_renderer.rb:39:in `block in instrument'
+  activesupport (4.2.1) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.1) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.1) lib/active_support/notifications.rb:164:in `instrument'
+  actionview (4.2.1) lib/action_view/renderer/abstract_renderer.rb:39:in `instrument'
+  actionview (4.2.1) lib/action_view/renderer/template_renderer.rb:53:in `block in render_template'
+  actionview (4.2.1) lib/action_view/renderer/template_renderer.rb:61:in `render_with_layout'
+  actionview (4.2.1) lib/action_view/renderer/template_renderer.rb:52:in `render_template'
+  actionview (4.2.1) lib/action_view/renderer/template_renderer.rb:14:in `render'
+  actionview (4.2.1) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionview (4.2.1) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionview (4.2.1) lib/action_view/rendering.rb:100:in `_render_template'
+  actionpack (4.2.1) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (4.2.1) lib/action_view/rendering.rb:83:in `render_to_body'
+  actionpack (4.2.1) lib/action_controller/metal/rendering.rb:32:in `render_to_body'
+  actionpack (4.2.1) lib/action_controller/metal/renderers.rb:37:in `render_to_body'
+  actionpack (4.2.1) lib/abstract_controller/rendering.rb:25:in `render'
+  actionpack (4.2.1) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:44:in `block (2 levels) in render'
+  activesupport (4.2.1) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /Users/elam/.rvm/rubies/ruby-2.1.3/lib/ruby/2.1.0/benchmark.rb:294:in `realtime'
+  activesupport (4.2.1) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:44:in `block in render'
+  actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:87:in `cleanup_view_runtime'
+  activerecord (4.2.1) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:43:in `render'
+  remotipart (1.2.1) lib/remotipart/render_overrides.rb:14:in `render_with_remotipart'
+  actionpack (4.2.1) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.2.1) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.2.1) lib/abstract_controller/base.rb:198:in `process_action'
+  actionpack (4.2.1) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.2.1) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:555:in `block (2 levels) in compile'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:505:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:505:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:92:in `_run_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:776:in `_run_process_action_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.1) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (4.2.1) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.1) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.1) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.1) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.1) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.1) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.1) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.1) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.1) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:74:in `call'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:74:in `dispatch'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:43:in `serve'
+  actionpack (4.2.1) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.1) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.1) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:819:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/railtie.rb:194:in `public_send'
+  railties (4.2.1) lib/rails/railtie.rb:194:in `method_missing'
+  actionpack (4.2.1) lib/action_dispatch/routing/mapper.rb:51:in `serve'
+  actionpack (4.2.1) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.1) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.1) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:819:in `call'
+  rack (1.6.0) lib/rack/etag.rb:24:in `call'
+  rack (1.6.0) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.0) lib/rack/head.rb:13:in `call'
+  remotipart (1.2.1) lib/remotipart/middleware.rb:27:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.1) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:649:in `call'
+  activerecord (4.2.1) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:776:in `_run_call_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/elam/.rvm/rubies/ruby-2.1.3/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/elam/.rvm/rubies/ruby-2.1.3/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/elam/.rvm/rubies/ruby-2.1.3/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/elam/.rvm/gems/ruby-2.1.3/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (9.1ms)
+  Rendered /Users/elam/.rvm/gems/ruby-2.1.3/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.2ms)
+  Rendered /Users/elam/.rvm/gems/ruby-2.1.3/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/elam/.rvm/gems/ruby-2.1.3/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (26.0ms)
+  [1m[36m (1.3ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (1.8ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateBootsyImages (20120624171333)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+DEPRECATION WARNING: `#timestamp` was called without specifying an option for `null`. In Rails 5, this behavior will change to `null: false`. You should manually specify `null: true` to prevent the behavior of your existing migrations from changing. (called from block in change at /Users/elam/wwww/elblog/db/migrate/20120624171333_create_bootsy_images.rb:6)
+  [1m[35m (0.5ms)[0m  CREATE TABLE "bootsy_images" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "image_file" varchar, "image_gallery_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20120624171333"]]
+  [1m[35m (1.2ms)[0m  commit transaction
+Migrating to CreateBootsyImageGalleries (20120628124845)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+DEPRECATION WARNING: `#timestamp` was called without specifying an option for `null`. In Rails 5, this behavior will change to `null: false`. You should manually specify `null: true` to prevent the behavior of your existing migrations from changing. (called from block in change at /Users/elam/wwww/elblog/db/migrate/20120628124845_create_bootsy_image_galleries.rb:5)
+  [1m[35m (0.3ms)[0m  CREATE TABLE "bootsy_image_galleries" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "bootsy_resource_id" integer, "bootsy_resource_type" varchar, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20120628124845"]]
+  [1m[35m (1.4ms)[0m  commit transaction
+Migrating to CreateElblogPosts (20150410144923)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "elblog_posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "content" varchar, "author" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150410144923"]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/elblog/posts" for 127.0.0.1 at 2015-04-13 12:25:08 -0300
+Processing by Elblog::PostsController#index as HTML
+  [1m[36mElblog::Post Load (1.5ms)[0m  [1mSELECT "elblog_posts".* FROM "elblog_posts"[0m
+  Rendered /Users/elam/wwww/elblog/app/views/elblog/posts/index.html.erb within layouts/elblog/application (17.7ms)
+Completed 200 OK in 976ms (Views: 970.6ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/assets/elblog/coments.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-04-13 12:25:10 -0300
+
+
+Started GET "/assets/elblog/coments.self-19a187bec6cdb96d6de80a61c16c857c613536adf9138476bd367db38d282635.js?body=1" for 127.0.0.1 at 2015-04-13 12:25:10 -0300
+
+
+Started GET "/assets/elblog/application.self-167193cd81d9330d9ddb5c4ec7b44214fea529aa8a94f3a86e6526e4f652fc02.css?body=1" for 127.0.0.1 at 2015-04-13 12:25:10 -0300
+
+
+Started GET "/assets/bootsy.self-bc5f4f8852bee8ff2f26b023fa37896e2898a552a66e15756877a0f3c4f77479.css?body=1" for 127.0.0.1 at 2015-04-13 12:25:10 -0300
+
+
+Started GET "/assets/bootstrap.self-adc5ef62e85f0bbd14c1fca04af35a694bfc45cefccd84ae63ef7e0b94a098c5.css?body=1" for 127.0.0.1 at 2015-04-13 12:25:10 -0300
+
+
+Started GET "/assets/elblog/posts.self-b60acab5af8d245ed2b3012f77d11d8d207d8eada27756badaf4ef05770d60f6.css?body=1" for 127.0.0.1 at 2015-04-13 12:25:10 -0300
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for 127.0.0.1 at 2015-04-13 12:25:10 -0300
+
+
+Started GET "/assets/jquery.iframe-transport.self-9d6de1e3d97369f20a85456477db38a3d2b674761f4a252275201ec0272793a4.js?body=1" for 127.0.0.1 at 2015-04-13 12:25:10 -0300
+
+
+Started GET "/assets/jquery.remotipart.self-337cc0be48c9612bd2dff6eebbc740a488456bba7c0d29da6b63834752826ecd.js?body=1" for 127.0.0.1 at 2015-04-13 12:25:10 -0300
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for 127.0.0.1 at 2015-04-13 12:25:10 -0300
+
+
+Started GET "/assets/bootsy/polyfill.self-b5009c78866362acfd086e1f6d65a94afc9017e324dfb43eccd0a4e728c4304b.js?body=1" for 127.0.0.1 at 2015-04-13 12:25:10 -0300
+
+
+Started GET "/assets/bootsy/wysihtml5.self-b42066a77cb660e2c04f31c006a5a3a8a5ed314218f4acac0c910c2079597bf6.js?body=1" for 127.0.0.1 at 2015-04-13 12:25:10 -0300
+
+
+Started GET "/assets/bootsy/init.self-ca227504be9a0f07937ad0f660e84f25db9dd220c9cf7f8d32ca1cfc99386d81.js?body=1" for 127.0.0.1 at 2015-04-13 12:25:10 -0300
+
+
+Started GET "/assets/bootsy/bootsy.self-e953f37ff1957602faf5c26b3a0caa5c64cfbb571873ca9a9b6f71d56b2c573a.js?body=1" for 127.0.0.1 at 2015-04-13 12:25:10 -0300
+
+
+Started GET "/assets/bootsy/bootstrap.file-input.self-59bcd06d78c4bed34040a21dccdf97231f1fb00d81b2d414f431c80bda1a0dd6.js?body=1" for 127.0.0.1 at 2015-04-13 12:25:10 -0300
+
+
+Started GET "/assets/bootsy/editor_options.self-9c1b0035273c1eecb418172d1fa5ad6cc9ca3f4ef2141122a90d12113cf103c3.js?body=1" for 127.0.0.1 at 2015-04-13 12:25:10 -0300
+
+
+Started GET "/assets/bootsy/translations.self-409a90a5110e237510c854431e320b3740aa7348794efc7a3d465cc4e37686c6.js?body=1" for 127.0.0.1 at 2015-04-13 12:25:10 -0300
+
+
+Started GET "/assets/bootsy/bootstrap-wysihtml5.self-7e4602957db7f6a9b50c9607d10dce52815de9a1246b92f409eef2dd058ae688.js?body=1" for 127.0.0.1 at 2015-04-13 12:25:10 -0300
+
+
+Started GET "/assets/bootsy.self-1e135afb54bf948ed616b7e518ea9f59c8edad95a2d1dfbae8adc60b167c5f6c.js?body=1" for 127.0.0.1 at 2015-04-13 12:25:10 -0300
+
+
+Started GET "/assets/bootstrap/affix.self-7a7af5c8ba4364283850b1f448f93836f47a5a8078b5a270dff48a0ffb7794fd.js?body=1" for 127.0.0.1 at 2015-04-13 12:25:10 -0300
+
+
+Started GET "/assets/bootstrap/alert.self-4adffdab32ced79a8daf179d165ad4ea335ccb603f5eb6facfad22e1e8097b10.js?body=1" for 127.0.0.1 at 2015-04-13 12:25:10 -0300
+
+
+Started GET "/assets/bootstrap/button.self-6b0e891f02d673ccaf0a597874a87a11abb7f2023eef0a1429ef11a9ad64518e.js?body=1" for 127.0.0.1 at 2015-04-13 12:25:10 -0300
+
+
+Started GET "/assets/bootstrap/collapse.self-8a49c10ee0ecf1595522dc78bd31e8d92f366b1f3b771a55637179769b225def.js?body=1" for 127.0.0.1 at 2015-04-13 12:25:10 -0300
+
+
+Started GET "/assets/bootstrap/dropdown.self-d7e5c723e2609d535008cd423300077b7f763c54e56292137aff715db6395871.js?body=1" for 127.0.0.1 at 2015-04-13 12:25:10 -0300
+
+
+Started GET "/assets/bootstrap/tab.self-587df9d2c7fd8d15aa0de0c23c4d27e29f14a694b2e3e569e6428e339810a191.js?body=1" for 127.0.0.1 at 2015-04-13 12:25:10 -0300
+
+
+Started GET "/assets/bootstrap/carousel.self-aabcecc58664c391624bced6df63a563bf95b49a77e553638d9b4d1ae7c694d7.js?body=1" for 127.0.0.1 at 2015-04-13 12:25:10 -0300
+
+
+Started GET "/assets/bootstrap/transition.self-8e777493bb637ab814ddcd40a5869595b8f90f3ba989e9b31a027edb4e703bb7.js?body=1" for 127.0.0.1 at 2015-04-13 12:25:10 -0300
+
+
+Started GET "/assets/bootstrap.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 127.0.0.1 at 2015-04-13 12:25:10 -0300
+
+
+Started GET "/assets/elblog/posts.self-19a187bec6cdb96d6de80a61c16c857c613536adf9138476bd367db38d282635.js?body=1" for 127.0.0.1 at 2015-04-13 12:25:10 -0300
+
+
+Started GET "/assets/bootstrap/scrollspy.self-8d2354c9d5bdac79660b2ba0539f47968658e4a20193b290cd6a2428e5c14157.js?body=1" for 127.0.0.1 at 2015-04-13 12:25:10 -0300
+
+
+Started GET "/assets/bootstrap/modal.self-e9e22c9ace8edd7e84c7d3b6b8baeefb0f31a0deffcb73d3c6205a0b907ca7a4.js?body=1" for 127.0.0.1 at 2015-04-13 12:25:10 -0300
+
+
+Started GET "/assets/bootstrap/tooltip.self-e5574c497092e9743769dfe1229a0a3e11529530101e56b01312abe3db89ab91.js?body=1" for 127.0.0.1 at 2015-04-13 12:25:10 -0300
+
+
+Started GET "/assets/bootstrap/popover.self-4e2aebcdc63a94cfb9993afa4dea32f7077266758c185946e43f8581042fdc4f.js?body=1" for 127.0.0.1 at 2015-04-13 12:25:10 -0300
+
+
+Started GET "/assets/elblog/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for 127.0.0.1 at 2015-04-13 12:25:10 -0300
+
+
+Started GET "/" for ::1 at 2015-04-13 13:23:00 -0300
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/elam/.rvm/gems/ruby-2.1.3/gems/railties-4.2.1/lib/rails/templates/rails/welcome/index.html.erb (2.4ms)
+Completed 200 OK in 36ms (Views: 36.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-04-13 13:23:00 -0300
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/elam/.rvm/gems/ruby-2.1.3/gems/railties-4.2.1/lib/rails/templates/rails/welcome/index.html.erb (0.1ms)
+Completed 200 OK in 1ms (Views: 1.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/elblog/posts/new" for ::1 at 2015-04-13 13:23:08 -0300
+Processing by Elblog::PostsController#new as HTML
+Filter chain halted as #<Proc:0x007fd887ca7800@/Users/elam/.rvm/gems/ruby-2.1.3/gems/actionpack-4.2.1/lib/action_controller/metal/http_authentication.rb:69> rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/elblog/posts/new" for ::1 at 2015-04-13 13:23:13 -0300
+Processing by Elblog::PostsController#new as HTML
+Filter chain halted as #<Proc:0x007fd887ca7800@/Users/elam/.rvm/gems/ruby-2.1.3/gems/actionpack-4.2.1/lib/action_controller/metal/http_authentication.rb:69> rendered or redirected
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/elblog/posts/new" for ::1 at 2015-04-13 13:23:22 -0300
+Processing by Elblog::PostsController#new as HTML
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (21.9ms)[0m  INSERT INTO "bootsy_image_galleries" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2015-04-13 16:23:31.019117"], ["updated_at", "2015-04-13 16:23:31.019117"]]
+  [1m[36m (12.3ms)[0m  [1mcommit transaction[0m
+  [1m[35mBootsy::ImageGallery Load (44.6ms)[0m  SELECT  "bootsy_image_galleries".* FROM "bootsy_image_galleries" WHERE "bootsy_image_galleries"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (5.3ms)[0m  UPDATE "bootsy_image_galleries" SET "bootsy_resource_type" = ?, "updated_at" = ? WHERE "bootsy_image_galleries"."id" = ?  [["bootsy_resource_type", "Elblog::Post"], ["updated_at", "2015-04-13 16:23:31.328086"], ["id", 1]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+  Rendered /Users/elam/.rvm/gems/ruby-2.1.3/gems/bootsy-2.1.0/app/views/bootsy/images/_modal.html.erb (628.9ms)
+  Rendered /Users/elam/wwww/elblog/app/views/elblog/posts/_form.html.erb (1558.9ms)
+  Rendered /Users/elam/wwww/elblog/app/views/elblog/posts/new.html.erb within layouts/elblog/application (1571.0ms)
+Completed 200 OK in 11799ms (Views: 3547.9ms | ActiveRecord: 132.6ms)
