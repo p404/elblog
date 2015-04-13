@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.name        = "elblog"
   s.version     = Elblog::VERSION
   s.authors     = ["Pablo Opazo", "Elam Torres"]
-  s.email       = ["paocamd@msn.com"]
+  s.email       = ["paoblo@4talent.cl", "etorres@4talent.cl"]
   s.homepage    = "http://www.4talent.cl"
   s.summary     = "Mininal Blog engine para rails"
   s.description = "Rails engine"
