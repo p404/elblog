@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/p404/elblog.svg?branch=master)](https://travis-ci.org/p404/elblog)
 <p align="center">
     <img src="http://www.lataco.com/wp-content/uploads/15askamexican.jpg" width="190px"/>
 </p>
