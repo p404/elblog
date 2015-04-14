@@ -15,5 +15,6 @@ RSpec.describe "elblog/posts/new", :type => :view do
 
       assert_select "input#post_author[name=?]", "post[author]"
     end
+    expect(rendered).to match("url: '#{Elblog.elblog_path}'+")
   end
 end
