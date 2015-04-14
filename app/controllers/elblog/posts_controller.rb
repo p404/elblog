@@ -1,10 +1,10 @@
-require_dependency "elblog/application_controller"
+require_dependency 'elblog/application_controller'
 
 module Elblog
   class PostsController < ApplicationController
     http_basic_authenticate_with name: Elblog.elblog_name, password: Elblog.elblog_password, except: [:index, :show]
     before_action :set_post, only: [:show, :edit, :update, :destroy]
-    
+
     # GET /posts
     def index
       @posts = Post.all
@@ -50,14 +50,15 @@ module Elblog
     end
 
     private
-      # Use callbacks to share common setup or constraints between actions.
-      def set_post
-        @post = Post.find(params[:id])
-      end
 
-      # Only allow a trusted parameter "white list" through.
-      def post_params
-        params.require(:post).permit(:title, :content, :author, :bootsy_image_gallery_id)
-      end
+    # Use callbacks to share common setup or constraints between actions.
+    def set_post
+      @post = Post.find(params[:id])
+    end
+
+    # Only allow a trusted parameter "white list" through.
+    def post_params
+      params.require(:post).permit(:title, :content, :author, :bootsy_image_gallery_id)
+    end
   end
 end

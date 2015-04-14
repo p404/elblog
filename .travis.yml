@@ -8,3 +8,6 @@ before_script:
   - 'cd spec/dummy'
   - 'bundle exec rake db:test:prepare'
   - 'cd ../..'
+addons:
+  code_climate:
+    repo_token: 9c8761c2808bbbe075f50dc73ede02b8d9128ce0df821cb3f3df8d44f8993671

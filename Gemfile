@@ -5,21 +5,21 @@ source 'https://rubygems.org'
 # development dependencies will be added by default to the :development group.
 gemspec
 
-
 group :development, :test do
   # Use debugger
   gem 'byebug'
-
   # test
   gem 'rspec-rails'
-
   # permite crear datos para los test
   gem 'factory_girl'
-
   # helper para los test
   gem 'shoulda-matchers', require: false
 
   gem 'ffaker'
+
+  gem 'codeclimate-test-reporter', require: false
+
+  gem 'rubocop'
 end
 
 # Declare any dependencies that are still in development here instead of in
@@ -29,4 +29,3 @@ end
 
 # To use a debugger
 # gem 'byebug', group: [:development, :test]
-
