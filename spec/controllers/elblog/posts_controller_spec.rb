@@ -21,7 +21,7 @@ require 'rails_helper'
 module Elblog
   RSpec.describe PostsController, :type => :controller do
     include Elblog::AuthHelper
-
+    
     routes { Elblog::Engine.routes }
 
     describe "GET index" do

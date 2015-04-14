@@ -1,25 +1,19 @@
 require 'rails_helper'
 
-RSpec.describe "coments/index", :type => :view do
+RSpec.describe "elblog/posts/index", :type => :view do
   before(:each) do
-    assign(:coments, [
-      Coment.create!(
-        :title => "Title",
-        :content => "Content",
-        :author => "Author"
-      ),
-      Coment.create!(
-        :title => "Title",
-        :content => "Content",
-        :author => "Author"
-      )
-    ])
+    @posts = FactoryGirl.create_list :elblog_post, 2
+    assign(:posts, @posts)
   end
 
-  it "renders a list of coments" do
+  it "renders a list of posts" do
     render
-    assert_select "tr>td", :text => "Title".to_s, :count => 2
-    assert_select "tr>td", :text => "Content".to_s, :count => 2
-    assert_select "tr>td", :text => "Author".to_s, :count => 2
+    assert_select "tr>td", :text => @posts.first.title, :count => 1
+    assert_select "tr>td", :text => @posts.first.content, :count => 1
+    assert_select "tr>td", :text => @posts.first.author, :count => 1
+
+    assert_select "tr>td", :text => @posts.last.title, :count => 1
+    assert_select "tr>td", :text => @posts.last.content, :count => 1
+    assert_select "tr>td", :text => @posts.last.author, :count => 1
   end
 end

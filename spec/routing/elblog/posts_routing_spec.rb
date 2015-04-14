@@ -3,7 +3,7 @@ require "rails_helper"
 module Elblog
   RSpec.describe PostsController, type: :routing do
     routes { Elblog::Engine.routes }
-
+    
     describe "routing" do
       it "routes to #index" do
         expect(get: "posts").to route_to("elblog/posts#index")

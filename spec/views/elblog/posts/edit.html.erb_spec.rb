@@ -1,24 +1,20 @@
 require 'rails_helper'
 
-RSpec.describe "coments/edit", :type => :view do
+RSpec.describe "elblog/posts/edit", :type => :view do
   before(:each) do
-    @coment = assign(:coment, Coment.create!(
-      :title => "MyString",
-      :content => "MyString",
-      :author => "MyString"
-    ))
+    @post = assign(:post, FactoryGirl.create(:elblog_post))
   end
 
-  it "renders the edit coment form" do
+  it "renders the edit post form" do
     render
 
-    assert_select "form[action=?][method=?]", coment_path(@coment), "post" do
+    assert_select "form[action=?][method=?]", post_path(@post), "post" do
 
-      assert_select "input#coment_title[name=?]", "coment[title]"
+      assert_select "input#post_title[name=?]", "post[title]"
 
-      assert_select "input#coment_content[name=?]", "coment[content]"
+      assert_select "textarea#post_content[name=?]", "post[content]"
 
-      assert_select "input#coment_author[name=?]", "coment[author]"
+      assert_select "input#post_author[name=?]", "post[author]"
     end
   end
 end
