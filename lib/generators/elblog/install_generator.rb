@@ -1,5 +1,7 @@
 module Elblog
   module Generators
+    # InstallGenerator
+    # Class Generator to Install gem Elblog config
     class InstallGenerator < Rails::Generators::Base
       source_root File.expand_path('../templates', __FILE__)
       argument :mount_path, type: :string, default: '/elblog'
@@ -18,7 +20,8 @@ module Elblog
       end
 
       def copy_config
-        template 'elblog.rb', 'config/initializers/elblog.rb', '#{mount_path}', @elblog_name, @elblog_password
+        template 'elblog.rb', 'config/initializers/elblog.rb', '#{mount_path}',
+                 @elblog_name, @elblog_password
       end
     end
   end

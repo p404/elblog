@@ -1,3 +1,5 @@
+# CreateElBlogPosts
+# Create table Posts with attributes
 class CreateElblogPosts < ActiveRecord::Migration
   def change
     create_table :elblog_posts do |t|

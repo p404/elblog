@@ -1,5 +1,6 @@
 require 'elblog/engine'
-
+# Elblog
+# NameSpace gem Elblog
 module Elblog
   mattr_accessor :elblog_path
   def self.elblog_path

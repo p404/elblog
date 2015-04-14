@@ -1,3 +1,5 @@
+# CreateBootsyImage
+# Create images table for uploading images gem bootsy
 class CreateBootsyImages < ActiveRecord::Migration
   def change
     create_table :bootsy_images do |t|

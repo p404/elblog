@@ -1,8 +1,12 @@
 require_dependency 'elblog/application_controller'
 
 module Elblog
+  # Post Controller
+  # Actions for post controller
   class PostsController < ApplicationController
-    http_basic_authenticate_with name: Elblog.elblog_name, password: Elblog.elblog_password, except: [:index, :show]
+    http_basic_authenticate_with name: Elblog.elblog_name,
+                                 password: Elblog.elblog_password,
+                                 except: [:index, :show]
     before_action :set_post, only: [:show, :edit, :update, :destroy]
 
     # GET /posts
@@ -58,7 +62,8 @@ module Elblog
 
     # Only allow a trusted parameter "white list" through.
     def post_params
-      params.require(:post).permit(:title, :content, :author, :bootsy_image_gallery_id)
+      params.require(:post).permit(:title, :content,
+                                   :author, :bootsy_image_gallery_id)
     end
   end
 end

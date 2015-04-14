@@ -1,3 +1,5 @@
+# CreateBootsyImage
+# Create linking table to uploading images bootsy
 class CreateBootsyImageGalleries < ActiveRecord::Migration
   def change
     create_table :bootsy_image_galleries do |t|
