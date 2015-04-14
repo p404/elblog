@@ -1,7 +1,7 @@
 .ruby-version
 .ruby-gemset
 .bundle/
-log/*.log
+*.log
 pkg/
 spec/dummy/tmp/
 spec/dummy/log/
