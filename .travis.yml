@@ -5,8 +5,7 @@ rvm:
 before_script:
   - 'export DISPLAY=:99.0'
   - 'sh -e /etc/init.d/xvfb start'
-  - 'cd spec/dummy'
-  - 'cd ../..'
+  - 'rake db:migrate RAILS_ENV=test'
 addons:
   code_climate:
     repo_token: 9c8761c2808bbbe075f50dc73ede02b8d9128ce0df821cb3f3df8d44f8993671
