@@ -23,6 +23,15 @@ module Elblog
         template 'elblog.rb', 'config/initializers/elblog.rb', '#{mount_path}',
                  @elblog_name, @elblog_password
       end
+
+      def copy_locale
+        directory '../../../../config/locales/', 'config/locales/'
+      end
+
+      def config_locale
+        locale = "Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s"
+        application "config.i18n.load_path += Dir[#{locale}]"
+      end
     end
   end
 end
