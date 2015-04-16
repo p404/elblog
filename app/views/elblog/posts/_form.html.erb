@@ -1,7 +1,7 @@
 <%= form_for(@post) do |f| %>
   <% if @post.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+      <h2><%= pluralize(@post.errors.count, "error").concat(t("activerecord.errors.template.save")) %></h2>
 
       <ul>
       <% @post.errors.full_messages.each do |message| %>
