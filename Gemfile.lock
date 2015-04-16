@@ -5,7 +5,7 @@ PATH
       bootstrap-sass (~> 3.0.3.0)
       bootsy
       jquery-rails
-      rails (~> 4.2.1)
+      rdoc
       sass-rails
 
 GEM
@@ -130,6 +130,7 @@ GEM
       thor (>= 0.18.1, < 2.0)
     rainbow (2.0.0)
     rake (10.4.2)
+    rdoc (4.2.0)
     remotipart (1.2.1)
     rspec-core (3.1.7)
       rspec-support (~> 3.1.0)
@@ -192,6 +193,7 @@ DEPENDENCIES
   factory_girl
   factory_girl_rails
   ffaker
+  rails (= 4.2.1)
   rspec-rails
   rubocop
   shoulda-matchers

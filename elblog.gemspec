@@ -18,8 +18,10 @@ Gem::Specification.new do |s|
   s.files = Dir['{app,config,db,lib}/**/*', 'MIT-LICENSE', 'Rakefile']
   s.test_files = Dir['test/**/*']
 
-  s.add_dependency 'rails', '~> 4.2.1'
+  s.required_ruby_version = '>= 2.0.0'
+
   s.add_dependency 'sass-rails'
+  s.add_dependency 'rdoc'
   s.add_dependency 'jquery-rails'
   s.add_dependency 'bootstrap-sass', '~> 3.0.3.0'
   s.add_dependency 'bootsy'

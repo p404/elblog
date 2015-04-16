@@ -9,13 +9,25 @@ load 'rails/tasks/engine.rake'
 
 Bundler::GemHelper.install_tasks
 
+require 'rdoc/task'
 require 'rubocop/rake_task'
 require 'rspec/core/rake_task'
 
+desc 'Generate documentation for elblog.'
+Rake::RDocTask.new(:rdoc) do |rdoc|
+  rdoc.rdoc_dir = 'rdoc'
+  rdoc.title    = 'Elblog'
+  rdoc.options << '--line-numbers' << '--inline-source'
+  rdoc.rdoc_files.include('README.md')
+  rdoc.rdoc_files.include('lib/**/*.rb')
+end
+
+desc 'Execute rubocop'
 RuboCop::RakeTask.new(:rubocop) do |task|
   task.patterns = ['app/**/*.rb', 'lib/**/*.rb']
 end
 
+desc 'Run elblog unit tests'
 RSpec::Core::RakeTask.new(:spec)
 
 task default: [:rubocop, :spec]

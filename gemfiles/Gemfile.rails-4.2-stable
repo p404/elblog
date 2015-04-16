@@ -1,10 +1,11 @@
-source 'https://rubygems.org'
+source "https://rubygems.org"
 
-gemspec
+gemspec path: '..'
 
-gem 'rails', '4.2.1'
+gem "rails", github: 'rails/rails', branch: '4-2-stable'
 
 group :development, :test do
+
   gem 'byebug'
 
   gem 'rspec-rails'
@@ -18,4 +19,5 @@ group :development, :test do
   gem 'codeclimate-test-reporter', require: false
 
   gem 'rubocop'
+  
 end
