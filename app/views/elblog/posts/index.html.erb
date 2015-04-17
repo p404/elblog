@@ -1,31 +1,73 @@
-<p id="notice"><%= notice %></p>
+<% @posts.each_with_index do |post, index| %>
+  <section class="post_container">
+    <header>
+      <!-- Post Title -->
+      <h1 class="post_title __link">
+        <%= link_to post.title, post %>
+      </h1>
+      
+      <!-- Post Info -->
+      <div class="post_info-container">
+        <a href="mailto:pablo@sequel.ninja" class="post_info-author"> 
+          <%= post.author %>
+        </a>
 
-<h1><%= t("elblog.views.index.title") %></h1>
+        <span class="post_dot">&nbsp;&middot;&nbsp;</span>
 
-<table>
-  <thead>
-    <tr>
-      <th><%= t("activerecord.attributes.elblog/post.title") %></th>
-      <th><%= t("activerecord.attributes.elblog/post.content") %></th>
-      <th><%= t("activerecord.attributes.elblog/post.author") %></th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+        <!-- TODO: Agregar fecha -->
+        <span class="post_info-date">19 de enero 2015</span>
 
-  <tbody>
-    <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.title %></td>
-        <td><%= post.content.html_safe %></td>
-        <td><%= post.author %></td>
-        <td><%= link_to t("elblog.actions.show"), post %></td>
-        <td><%= link_to t("elblog.actions.edit"), edit_post_path(post) %></td>
-        <td><%= link_to t("elblog.actions.destroy.text"), post, method: :delete, data: { confirm: t("elblog.actions.destroy.confirmation") } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        <div class="post_tag-container">
+          <span class="post_tag-icon"></span>
+          <!-- TODO: Agregar tags, separados por coma -->
+          <a href="" class="post_tag">TAG</a>
+        </div>
+      </div>
+    </header>
 
-<br>
+    <div class="post_subheader-container">
+      
+      <!-- Banner -->
+      <!-- TODO: Reemplazar banner dinamico -->
+      <%= image_tag("elblog/img-banner", { class: "post_banner" }) %>
 
-<%= link_to t("elblog.views.new.title"), new_post_path %>
+
+      <!-- Subheader -->
+      <!-- TODO: Agregar contenido -->
+      <h3 class="post_subheader">
+        Estar con un pie adentro y otro afuera, parece la descripci&oacute;n que representa mejor por estos d&iacute;as a los chilenos. Un estudio realizado por la empresa <a href="" class="post_subheader-link">trabajando.com</a>, revel&oacute; cifras que muestran c&oacute;mo los chilenos se la pasan en vacaciones.
+      </h3>
+    </div>
+
+    <div class="post_read-more">
+      <%= link_to "Leer Más", post %>
+    </div>
+
+  </section>
+
+  <% if (index+1) < @posts.count %>
+    <div class="post_separation"></div>
+  <% end %>
+    
+    <!--
+      <%= link_to t("elblog.actions.show"), post %>
+      <%= link_to t("elblog.actions.edit"), edit_post_path(post) %>
+      <%= link_to t("elblog.actions.destroy.text"), post, method: :delete, data: { confirm: t("elblog.actions.destroy.confirmation") } %>
+    -->
+<% end %>
+
+<section class="paginate_container">
+  <span class="paginate_element"> anterior </span>
+  <span class="paginate_element">1</span>
+  <span class="paginate_element">2</span>
+  <span class="paginate_element __current">3</span>
+  <span class="paginate_element">4</span>
+  <span class="paginate_element">5</span>
+  <span class="paginate_element"> siguiente </span>
+</section>
+
+<!--
+  <div>
+    Agregar Nuevo: <%= link_to t("elblog.views.new.title"), new_post_path %>
+  </div>
+-->

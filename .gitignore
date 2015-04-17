@@ -7,3 +7,6 @@ pkg/
 spec/dummy/tmp/
 spec/dummy/log/
 spec/dummy/db/*.sqlite3
+
+# MAC SHIT
+.DS_Store

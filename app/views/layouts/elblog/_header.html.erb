@@ -1,0 +1,43 @@
+<header class="page-header">
+	<nav>
+		<div class="page-header_row __small">
+			<div class="page-header_logo-container">
+				<!-- Change this image with whatever logo you want to use -->
+
+				<!-- TODO: Cambiar url -->
+				<%= link_to '/elblog/posts' do %>
+					<%= image_tag("elblog/logo-header-elblog", { class: "page-header_logo" }) %>
+				<% end %>
+			</div>
+
+			<!-- Todo: Implementar busqueda -->
+			<div class="page-header_search-container">
+				<input type="text" class="page-header_search" placeholder="buscar">
+			</div>
+		</div>
+
+
+		<!--
+		The following can be used to add nav links for navigation
+		-->
+
+		<div class="page-header_row">	
+			
+			<!-- # Navbar container -->
+			<ul class="page-header_nav-container">
+			
+			<!-- # Section link container -->
+				<li class="page-header_nav-elements active">
+
+			<!-- # Each section link -->
+			<!-- Todo: Cambiar url por elblog/posts -->
+					<a href="/elblog/posts">
+						HOME
+					</a>
+				</li>
+			</ul>
+		</div>
+		<!--
+		-->
+	</nav>
+</header>

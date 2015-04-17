@@ -1,0 +1,61 @@
+/*
+	@Social
+*/
+
+/* Contenedor de elementos */
+.social_container {
+	display: 		table;
+	margin-bottom: 	20px;
+}
+.social_container.__margin-left {
+	margin-left: 8%;
+}
+
+/* Botones */
+.social_button {
+	/* Background size con important porque la imagen lo borra */
+	background-size: 	30px !important;
+	height: 			30px;
+	width: 				40px;
+}
+
+/* Modificadores por red social */
+.social_button.__facebook {
+	background: image-url('elblog/icon-facebook.png') no-repeat;
+}
+.social_button.__twitter {
+	background: image-url('elblog/icon-twitter.png') no-repeat;
+}
+.social_button.__googleplus {
+	background: image-url('elblog/icon-googleplus.png') no-repeat;
+}
+.social_button.__linkedin {
+	background: image-url('elblog/icon-linkedin.png') no-repeat;
+}
+
+/* Blog Text */
+.social_text {
+	display: 		table-cell;
+	font-size: 		2.2em;
+	font-weight: 	100;
+	height: 		20px;
+}
+
+@media (max-width: 500px) {
+	.social_container {
+		margin: 0 auto;
+	}
+	.social_button {
+		display: inline-block;
+	}
+	.social_text {
+		display: 	block;
+		width: 		100%;
+	}
+}
+
+@media (min-width: 501px) {
+	.social_button {
+		display: table-cell;
+	}
+}

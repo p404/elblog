@@ -1,33 +1,65 @@
-<p id="notice"><%= notice %></p>
+<section class="post_container">
 
-<p>
-  <strong><%= t("activerecord.attributes.elblog/post.title") %></strong>
-  <%= @post.title %>
-</p>
+  <!--<%= t("activerecord.attributes.elblog/post.title") %>-->
+  <h1 class="post_title">
+    <%= @post.title %>
+  </h1>
+  
+  <div class="post_info-container">
+    <a href="" class="post_info-author">
+      <%= @post.author %>
+    </a>
+    <span class="post_dot">&nbsp;&middot;&nbsp;</span>
+    <span class="post_info-date">19 de enero 2015</span>
+  </div>
 
-<p>
-  <strong><%= t("activerecord.attributes.elblog/post.content") %></strong>
-  <%= @post.content %>
-</p>
+  <div class="post_tag-container">
+    <span class="post_tag-icon"></span>
+    <a href="" class="post_tag">Administraci&oacute;n de personas</a>,
+    <a href="" class="post_tag"> Tendencias</a>
+  </div>
 
-<p>
-  <strong><%= t("activerecord.attributes.elblog/post.author") %></strong>
-  <%= @post.author %>
-</p>
+  <div class="post_subheader-container">
+    <%= image_tag("elblog/img-banner", { class: "post_banner" }) %>
 
-<%= link_to t("elblog.views.edit.title"), edit_post_path(@post) %> |
-<%= link_to t("elblog.views.index.title"), posts_path %>
+    <h3 class="post_subheader">
+      Estar con un pie adentro y otro afuera, parece la descripci&oacute;n que representa mejor por estos d&iacute;as a los chilenos. Un estudio realizado por la empresa <a href="" class="post_subheader-link">trabajando.com</a>, revel&oacute; cifras que muestran c&oacute;mo los chilenos se la pasan en vacaciones.
+    </h3>
+  </div>
 
-<div id="disqus_thread"></div>
-<script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES * * */
-    var disqus_shortname = '<%= Elblog.elblog_discuss_shortname %>';
+  <div class="post_body clearfix">
+    <div class="post_body-content">
+      <!--<%= t("activerecord.attributes.elblog/post.content") %>-->
+      <%= @post.content.html_safe %>
+    </div>
+    <aside class="post_body-aside">
+    </aside>
+  </div>
+
+  <footer class="post_footer">
+    <div class="social_container">
+      <a href="" class="social_button __linkedin"></a>
+      <a href="" class="social_button __twitter"></a>
+      <a href="" class="social_button __facebook"></a>
+      <a href="" class="social_button __googleplus"></a>
+      <span class="social_text">&iexcl;Corre la voz!</span>
+    </div>
     
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    <!-- Disqus here -->
+    <div id="disqus_thread"></div>
+    <!-- Disqus ends here -->
+  </footer>
+
+  <script type="text/javascript">
+      /* * * CONFIGURATION VARIABLES * * */
+      var disqus_shortname = '<%= Elblog.elblog_discuss_shortname %>';
+      
+      /* * * DON'T EDIT BELOW THIS LINE * * */
+      (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</section>
