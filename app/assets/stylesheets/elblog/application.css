@@ -13,5 +13,11 @@
  *= require bootstrap
  *= require_self
  *= require bootsy
- *= require_tree .
+ *= require elblog/helpers
+ *= require elblog/main
+ *= require elblog/components/footer
+ *= require elblog/components/header
+ *= require elblog/components/paginate
+ *= require elblog/components/post
+ *= require elblog/components/social
  */

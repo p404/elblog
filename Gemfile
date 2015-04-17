@@ -18,4 +18,6 @@ group :development, :test do
   gem 'codeclimate-test-reporter', require: false
 
   gem 'rubocop'
+  
+  gem "spring"
 end
