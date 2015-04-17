@@ -1,0 +1,203 @@
+/*
+	@Post
+*/
+
+/* Contenedor */
+.post_container {
+	padding: 	0 30px;
+	text-align: center;
+}
+
+/* Titulo */
+.post_title {
+	font-size: 		5em;
+	font-weight: 	400;
+	margin-bottom: 	4px;
+}
+.post_title.__link a {
+	color: #3399da;
+}
+
+/* Contenedor de Author y Date */
+.post_info-container {
+	margin-bottom: 8px;
+}
+
+/* Author y Date comparten todos sus estilos excepto el color */
+.post_info-author, 
+.post_info-date {
+	font-style: 	italic;
+	font-size: 		2.5em;
+	font-weight: 	100;
+}
+
+/* Color Author */
+.post_info-author {
+	color: #3399da;
+}
+/* Color Date */
+.post_info-date {
+	color: #888;
+}
+
+/* Contenedor de Tags */
+.post_tag-container {
+	color: 			#ccc;
+	margin-bottom: 	8px;
+}
+
+/* Tag icon */
+.post_tag-icon {
+	background: 		image-url('elblog/icon-tag.png') no-repeat;
+	background-size: 	13px;
+	display: 			inline-block;
+	height: 			13px;
+	/* Distancia de tags */
+	margin-right: 		4px;
+	width: 				14px;
+}
+
+/* Tags */
+.post_tag {
+	display: 		inline-block;
+	height: 		16px;
+}
+
+/* Subheader */
+.post_subheader {
+	font-size: 	3.4em;
+	padding: 	0 10px;
+	text-align: left;
+}
+.post_subheader-link {
+	color: #3399da;
+}
+
+/* Postbody */
+.post_body {
+	font-weight: 	100;
+	margin-bottom: 	20px;
+	text-align: 	left;
+}
+
+/* Post List */
+/* Leer Mas */
+.post_read-more {
+	margin-bottom: 	60px;
+	padding-left: 	40px;
+	text-align: 	left;
+}
+/* Link */
+.post_read-more a {
+	/* 96px para quedar al final de "Leer Más" y 6px para que quede a la mitad */
+	background: 		image-url('elblog/icon-rightArrow.png') no-repeat 96px 6px;
+	background-size: 	26px;
+	color: 				#3399da;
+	display: 			block;
+	font-size: 			2.6em;
+	font-weight: 		100;
+	/* Largo para que alcance el texto + icono */
+	width: 				134px;
+}
+
+/* Separacion entre posts */
+.post_separation {
+	background: #dfdfdf;
+	height: 	1px;
+	margin: 	0 auto;
+	width: 		40%;
+}
+
+/* Menor a 500 */
+@media (max-width: 500px) {
+	
+	/* Contenedor */
+	.post_container {
+		padding: 		0 12px;
+		margin-bottom: 	20px;
+	}
+
+	/* Tag */
+	.post_tag-container {
+		font-size: 2.4em;
+	}
+
+	/* Banner */
+	.post_banner {
+		max-width: 100%;
+	}
+
+	/* Subheader */
+	.post_subheader {
+		font-weight: 200;
+	}
+
+	/* Dot */
+	.post_dot {
+		font-size: 2em;
+	}
+
+	/* Postbody */
+	.post_body {
+		font-size: 	3em;
+		padding: 	0 10px;
+	}
+}
+
+/* Mayor a 500 */
+@media (min-width: 501px) {
+	
+	/* Post wrapper */
+	.post_container {
+		padding: 0 140px;
+	}
+
+	/* Banner */
+	.post_banner {
+  		margin: 	0 auto;
+  		/*max-width: 	800px;*/
+		width: 		100%;
+	}
+
+	/* Post Body Content two Rows */
+	/* 2/3 row */
+	.post_body-content {
+		float: 		left;
+		padding: 	0 2%;
+		width: 		66%;
+	}
+	/* 1/3 row */
+	.post_body-aside {
+		float: 		left;
+		margin-top: 1em;
+		padding: 	0 2%;
+		width: 		26%;
+	}
+
+	/* Tag */
+	.post_tag-container {
+		font-size: 		2em;
+		margin-bottom: 	20px;
+	}
+	.post_tag-container.__left {
+		text-align: left;
+	}
+
+	/* Subheader */
+	.post_subheader {
+		font-weight: 	200;
+	}
+	.post_subheader-container {
+		margin-bottom: 40px;
+	}
+	
+	/* Postbody */
+	.post_body {
+		font-size: 	2.4em;
+		text-align: justify;
+		padding: 	0 30px;
+	}
+	.post_footer {
+		padding: 0 30px;
+	}
+}

@@ -1,0 +1,16 @@
+/* Mini Reset */
+
+/* Eliminar margin y padding default y setear font-size base */
+html,
+body {
+	margin: 	0;
+	padding: 	0;
+	font-size: 	8px;
+	width: 		100%;
+}
+
+/* Eliminar subrayado y color por defecto de links */
+a {
+	cursor: 			pointer;
+	text-decoration: 	none;
+}

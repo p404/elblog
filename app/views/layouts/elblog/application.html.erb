@@ -2,13 +2,28 @@
 <html>
 <head>
   <title>Elblog</title>
-  <%= stylesheet_link_tag    "elblog/application", media: "all" %>
-  <%= javascript_include_tag "elblog/application" %>
+  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <%= csrf_meta_tags %>
-</head>
-<body>
 
-<%= yield %>
+  <%= stylesheet_link_tag    "elblog/application", media: "all" %>
+  
+  <%= javascript_include_tag "elblog/application" %>
+</head>
+
+<body>
+	<div class="page-wrap">
+		
+		<!-- Header -->
+		<%= render partial: "layouts/elblog/header" %>
+
+		<!-- Body -->
+		<%= yield %>
+
+		<!-- Footer -->
+		<%= render partial: "layouts/elblog/footer" %>
+	</div>
 
 </body>
 </html>

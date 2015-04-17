@@ -1,0 +1,164 @@
+/*
+	@Header
+*/
+
+/* Contenedor de header */
+.page-header {
+	height: 126px;
+	margin: 0 !important;
+	width: 	100%;
+}
+
+.page-header_logo {
+	max-height: 120px;
+}
+
+/* Contenedor de elementos de navegacion */
+.page-header_nav-container {
+	margin: 	0;
+	padding:	0;
+}
+
+/* Elementos de navegacion */
+.page-header_nav-elements {
+	display: 		inline-block;
+	font-weight: 	100;
+	margin: 		0;
+	padding: 		20px 0 10px;
+	text-align: 	center;
+}
+.page-header_nav-elements a {
+	color: #888;
+}
+/* Color para texto */
+.page-header_nav-elements.__active a {
+	color: #3399da;
+}
+
+/* Contenedor de logo y busqueda (mismas reglas para alinear) */
+.page-header_logo-container,
+.page-header_search-container {
+	display: 		inline-block;
+	height: 		40px;
+	text-align: 	center;
+	width: 			49%;
+}
+
+/* Vertical Align para contenedors de Logo y Busqueda 
+	¿Porque?
+	Por problemas de alineación entre img e input
+*/
+
+/* Logo al medio (Imagen) */
+.page-header_logo-container {
+	text-align: 	center;
+	vertical-align: middle;
+	width: 			100%;
+}
+/* Input en baseline */
+.page-header_search-container {
+	vertical-align: baseline;
+}
+
+/* Buscar */
+.page-header_search {
+	border: 1px solid #ccc;
+}
+
+/* Menor a 500px */
+@media (max-width: 500px) {
+	
+	/* Contenedor Header */
+	.page-header {
+		margin-top: 14px;
+	}
+
+	/* Filas Header */
+	.page-header_row {
+		width: 100%;
+	}
+
+	/* Tamaño maximo logo */
+	.page-header_logo {
+		max-width: 140px;
+	}
+
+	/* Elementos de navegacion */
+	.page-header_nav-elements {
+		width: 33%;
+	}
+	.page-header_nav-elements a {
+		font-size: 2.2em;
+	}
+
+	/* Estado activo para elementos de navegacion */
+	.page-header_nav-elements.__active {
+		border-bottom: 2px solid #3399da;
+	}
+
+	/* Buscar */
+	.page-header_search {
+		border-radius: 	8px;
+		padding: 		6px;
+		padding-left: 	12px;
+		width: 			120px;
+	}
+}
+
+/* Mayor a 500px */
+@media (min-width: 501px) {
+	
+	/* Contenedor Header */
+	.page-header {
+		overflow: 	hidden;
+		padding: 	0 2%;
+		position: 	relative;
+		width: 		96%;
+	}
+	
+	/* Filas Header */
+	.page-header_row {
+		display: 	block;
+		float: 		left;
+		width: 		70%;
+	}
+
+	/* Fila Pequeña (Contiene el logo) Header */
+	.page-header_row.__small {
+		width: 200px !important;
+	}
+
+	/* Tamaño maximo logo */
+	.page-header_logo {
+		max-width: 180px;
+	}
+
+	.page-header_nav-container {
+		text-align: center;
+	}
+
+	/* Elementos de navegacion */
+	.page-header_nav-elements {
+		font-size: 		2.4em;
+		height: 		40px;
+		padding: 		0;
+		padding-top: 	40px;
+		margin: 		0 20px;
+	}
+	
+	/* Estado activo para elementos de navegacion */
+	/* Borde inferior para contenedor */
+	.page-header_nav-elements.__active {
+		border-bottom: 	4px solid #3399da;
+	}
+	
+
+	/* Buscar */
+	.page-header_search {
+		border-radius: 	10px;
+		padding: 		10px;
+		position: 		absolute;
+		right: 			30px;
+		top: 			32px;
+	}
+}

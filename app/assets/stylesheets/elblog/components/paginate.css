@@ -1,0 +1,23 @@
+/*
+	@Paginate
+*/
+
+.paginate_container {
+	margin: 	0 auto;
+	padding: 	40px;
+	text-align: center;
+}
+.paginate_element {
+	background: 	#3399da;
+	border-radius: 	6px;
+	color: 			#e7f7ff;
+	cursor: 		pointer;
+	font-size: 		2em;
+	font-weight: 	100;
+	margin: 		0 2px;
+	padding: 		8px 14px;
+}
+.paginate_element.__current {
+	background: #e7f7ff;
+	color: 		#3399da;
+}
