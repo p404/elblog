@@ -1,21 +1,8 @@
 require "codeclimate-test-reporter"
 CodeClimate::TestReporter.start
 ENV["RAILS_ENV"] ||= 'test'
-dummy_app = case ENV["RAILS_VERSION"]
-when 'default'
-  'dummy'
-when '4.0'
-  'r4.0'
-when '4.1'
-  'r4.1'
-when '4.2'
-  'r4.2'
-else
-  "dummy"
-end 
-
 require 'spec_helper'
-require File.expand_path("../#{dummy_app}/config/environment", __FILE__)
+require File.expand_path("../dummy/config/environment", __FILE__)
 require 'rspec/rails'
 require 'shoulda-matchers'
 require 'ffaker'
