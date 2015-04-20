@@ -22,13 +22,13 @@ gem "rails", rails
 group :development, :test do
   gem 'byebug'
 
+  gem 'ffaker'
+
   gem 'rspec-rails'
 
   gem 'factory_girl'
 
   gem 'shoulda-matchers', require: false
-
-  gem 'ffaker'
 
   gem 'codeclimate-test-reporter', require: false
 

@@ -98,7 +98,7 @@ module Elblog
     describe "PUT update" do
       describe "with valid params" do
         new_attributes = {
-          title: Faker::Lorem.sentence, content: Faker::Lorem.paragraph, author: Faker::Name.name
+          title: FFaker::Lorem.sentence, content: FFaker::Lorem.paragraph, author: FFaker::Name.name
         }
 
         it "updates the requested post" do
