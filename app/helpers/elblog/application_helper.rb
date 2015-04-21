@@ -6,9 +6,9 @@ module Elblog
     when 'default'
       routes = Rails.application.routes.routes
       ROUTE_NAME_ELBLOG = routes.find { |r| r.app.app == Elblog::Engine }.name
-    when '4.2.1'
-      routes = Rails.application.routes.routes
-      ROUTE_NAME_ELBLOG = routes.find { |r| r.app.app == Elblog::Engine }.name
+    when '4.1'
+      routes = Rails.application.routes.routes.routes
+      ROUTE_NAME_ELBLOG = routes.find { |r| r.app == Elblog::Engine }.name
     when '4.2'
       routes = Rails.application.routes.routes
       ROUTE_NAME_ELBLOG = routes.find { |r| r.app.app == Elblog::Engine }.name

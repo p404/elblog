@@ -9,3 +9,4 @@ tmp/
 db/
 # MAC SHIT
 .DS_Store
+Gemfile.lock
