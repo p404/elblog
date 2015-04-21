@@ -4,7 +4,21 @@ rescue LoadError
   puts 'You must `gem install bundler` and `bundle install` to run rake tasks'
 end
 
-APP_RAKEFILE = File.expand_path('../spec/dummy/Rakefile', __FILE__)
+dummy_app = case ENV["RAILS_VERSION"]
+when 'default'
+  'dummy'
+when '4.0'
+  'r4.0'
+when '4.1'
+  'r4.1'
+when '4.2'
+  'r4.2'
+else
+  "dummy"
+end 
+
+
+APP_RAKEFILE = File.expand_path("../spec/#{dummy_app}/Rakefile", __FILE__)
 load 'rails/tasks/engine.rake'
 
 Bundler::GemHelper.install_tasks
