@@ -8,12 +8,10 @@ RSpec.describe "elblog/posts/index", :type => :view do
 
   it "renders a list of posts" do
     render
-    assert_select "tr>td", :text => @posts.first.title, :count => 1
-    assert_select "tr>td", :text => @posts.first.content, :count => 1
-    assert_select "tr>td", :text => @posts.first.author, :count => 1
-
-    assert_select "tr>td", :text => @posts.last.title, :count => 1
-    assert_select "tr>td", :text => @posts.last.content, :count => 1
-    assert_select "tr>td", :text => @posts.last.author, :count => 1
+    @posts.each do |post| 
+      assert_select "a[href=?]", post_path(post), :text => post.title, :count => 1
+      expect(rendered).to match(post.content)
+      expect(rendered).to match(post.author)
+    end 
   end
 end
