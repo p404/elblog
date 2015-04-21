@@ -48,106 +48,106 @@ module Elblog
       end
     end
 
-    describe "GET edit" do
-      it "assigns the requested post as @post" do
-        http_login
-        post = FactoryGirl.create(:elblog_post)
-        get :edit, {:id => post.to_param}
-        expect(assigns(:post)).to eq(post)
-      end
-    end
+    # describe "GET edit" do
+    #   it "assigns the requested post as @post" do
+    #     http_login
+    #     post = FactoryGirl.create(:elblog_post)
+    #     get :edit, {:id => post.to_param}
+    #     expect(assigns(:post)).to eq(post)
+    #   end
+    # end
 
-    describe "POST create" do
-      describe "with valid params" do
-        it "creates a new post" do
-          http_login
-          expect {
-            post :create, {:post => FactoryGirl.attributes_for(:elblog_post)}
-          }.to change(Post, :count).by(1)
-        end
+    # describe "POST create" do
+    #   describe "with valid params" do
+    #     it "creates a new post" do
+    #       http_login
+    #       expect {
+    #         post :create, {:post => FactoryGirl.attributes_for(:elblog_post)}
+    #       }.to change(Post, :count).by(1)
+    #     end
 
-        it "assigns a newly created post as @post" do
-          http_login
-          post :create, {:post => FactoryGirl.attributes_for(:elblog_post)}
-          expect(assigns(:post)).to be_a(Post)
-          expect(assigns(:post)).to be_persisted
-        end
+    #     it "assigns a newly created post as @post" do
+    #       http_login
+    #       post :create, {:post => FactoryGirl.attributes_for(:elblog_post)}
+    #       expect(assigns(:post)).to be_a(Post)
+    #       expect(assigns(:post)).to be_persisted
+    #     end
 
-        it "redirects to the created post" do
-          http_login
-          post :create, {:post => FactoryGirl.attributes_for(:elblog_post)}
-          expect(response).to redirect_to(Post.last)
-        end
-      end
+    #     it "redirects to the created post" do
+    #       http_login
+    #       post :create, {:post => FactoryGirl.attributes_for(:elblog_post)}
+    #       expect(response).to redirect_to(Post.last)
+    #     end
+    #   end
 
-      describe "with invalid params" do
-        it "assigns a newly created but unsaved post as @post" do
-          http_login
-          post :create, {:post => FactoryGirl.attributes_for(:elblog_post_invalid)}
-          expect(assigns(:post)).to be_a_new(Post)
-        end
+    #   describe "with invalid params" do
+    #     it "assigns a newly created but unsaved post as @post" do
+    #       http_login
+    #       post :create, {:post => FactoryGirl.attributes_for(:elblog_post_invalid)}
+    #       expect(assigns(:post)).to be_a_new(Post)
+    #     end
 
-        it "re-renders the 'new' template" do
-          http_login
-          post :create, {:post => FactoryGirl.attributes_for(:elblog_post_invalid)}
-          expect(response).to render_template("new")
-        end
-      end
-    end
+    #     it "re-renders the 'new' template" do
+    #       http_login
+    #       post :create, {:post => FactoryGirl.attributes_for(:elblog_post_invalid)}
+    #       expect(response).to render_template("new")
+    #     end
+    #   end
+    # end
 
-    describe "PUT update" do
-      describe "with valid params" do
-        new_attributes = {
-          title: FFaker::Lorem.sentence, content: FFaker::Lorem.paragraph, author: FFaker::Name.name
-        }
+    # describe "PUT update" do
+    #   describe "with valid params" do
+    #     new_attributes = {
+    #       title: FFaker::Lorem.sentence, content: FFaker::Lorem.paragraph, author: FFaker::Name.name
+    #     }
 
-        it "updates the requested post" do
-          http_login
-          post = FactoryGirl.create(:elblog_post)
-          put :update, {:id => post.to_param, :post => new_attributes}
-          post.reload
-          expect(assigns(:post)).to eq(post)
-          expect(post.title).to eq new_attributes[:title]
-          expect(post.content).to eq new_attributes[:content]
-          expect(post.author).to eq new_attributes[:author]
-          expect(response).to redirect_to(post)
-        end
-      end
+    #     it "updates the requested post" do
+    #       http_login
+    #       post = FactoryGirl.create(:elblog_post)
+    #       put :update, {:id => post.to_param, :post => new_attributes}
+    #       post.reload
+    #       expect(assigns(:post)).to eq(post)
+    #       expect(post.title).to eq new_attributes[:title]
+    #       expect(post.content).to eq new_attributes[:content]
+    #       expect(post.author).to eq new_attributes[:author]
+    #       expect(response).to redirect_to(post)
+    #     end
+    #   end
 
-      describe "with invalid params" do
+    #   describe "with invalid params" do
 
-        it "assigns the post as @post" do
-          http_login
-          post = FactoryGirl.create(:elblog_post)
-          put :update, {:id => post.to_param, :post => FactoryGirl.attributes_for(:elblog_post_invalid) }
-          expect(assigns(:post)).to eq(post)
-        end
+    #     it "assigns the post as @post" do
+    #       http_login
+    #       post = FactoryGirl.create(:elblog_post)
+    #       put :update, {:id => post.to_param, :post => FactoryGirl.attributes_for(:elblog_post_invalid) }
+    #       expect(assigns(:post)).to eq(post)
+    #     end
 
-        it "re-renders the 'edit' template" do
-          http_login
-          post = FactoryGirl.create(:elblog_post)
-          put :update, {:id => post.to_param, :post => FactoryGirl.attributes_for(:elblog_post_invalid) }
-          expect(response).to render_template("edit")
-        end
-      end
-    end
+    #     it "re-renders the 'edit' template" do
+    #       http_login
+    #       post = FactoryGirl.create(:elblog_post)
+    #       put :update, {:id => post.to_param, :post => FactoryGirl.attributes_for(:elblog_post_invalid) }
+    #       expect(response).to render_template("edit")
+    #     end
+    #   end
+    # end
 
-    describe "DELETE destroy" do
-      it "destroys the requested post" do
-        http_login
-        post = FactoryGirl.create(:elblog_post)
-        expect {
-          delete :destroy, {:id => post.to_param}
-        }.to change(Post, :count).by(-1)
-      end
+    # describe "DELETE destroy" do
+    #   it "destroys the requested post" do
+    #     http_login
+    #     post = FactoryGirl.create(:elblog_post)
+    #     expect {
+    #       delete :destroy, {:id => post.to_param}
+    #     }.to change(Post, :count).by(-1)
+    #   end
 
-      it "redirects to the posts list" do
-        http_login
-        post = FactoryGirl.create(:elblog_post)
-        delete :destroy, {:id => post.to_param}
-        expect(response).to redirect_to(posts_url)
-      end
-    end
+    #   it "redirects to the posts list" do
+    #     http_login
+    #     post = FactoryGirl.create(:elblog_post)
+    #     delete :destroy, {:id => post.to_param}
+    #     expect(response).to redirect_to(posts_url)
+    #   end
+    # end
 
   end
 end

@@ -4,9 +4,9 @@ rdoc/
 .bundle/
 *.log
 pkg/
-spec/dummy/tmp/
-spec/dummy/log/
-spec/dummy/db/*.sqlite3
 
+tmp/
+db/
 # MAC SHIT
 .DS_Store
+Gemfile.lock

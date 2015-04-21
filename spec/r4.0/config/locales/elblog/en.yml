@@ -1,0 +1,41 @@
+en:
+  activerecord:
+    errors:
+      template:
+        save: " prohibited this post from being saved:"
+      models:
+        elblog/post:
+          attributes:
+            title:
+              blank: "can't be blank"
+              taken: "was taken"
+            content:
+              blank: "can't be blank"
+              taken: "was taken"
+            author:
+              blank: "can't be blank"
+    attributes:
+      elblog/post:
+        title: "Title"
+        content: "Content"
+        author: "Author"
+  elblog:
+    views: 
+      new: 
+        title: "New Post"
+      index:
+        title: "Listing Posts"
+      show:
+        title: "Show"
+      edit:
+        title: "Edit"
+    actions:
+      destroy:
+        text: "Destroy"
+        confirmation: "Are you sure to destroy it"
+      update:
+        text: "Update"
+        confirmation: "Are you sure to update it"
+      create:
+        text: "Create"
+        confirmation: "Are you sure to create"

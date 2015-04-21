@@ -2,11 +2,11 @@ module Elblog
   # PostsHelper Helper
   # Provides specific methods helpers to the PostsController
   module PostsHelper
-    def posts_path
+    def posts_path(_post = nil)
       send(Elblog::ApplicationHelper::ROUTE_NAME_ELBLOG).posts_path
     end
 
-    def post_path(post)
+    def post_path(post, _arg2 = nil)
       send(Elblog::ApplicationHelper::ROUTE_NAME_ELBLOG).post_path(post)
     end
 
