@@ -6,6 +6,7 @@ rdoc/
 pkg/
 
 tmp/
+!spec/tmp
 db/
 # MAC SHIT
 .DS_Store
