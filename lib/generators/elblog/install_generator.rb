@@ -9,7 +9,8 @@ module Elblog
       def add_routes
         path_root = destination_root + '/config/routes.rb'
         content = ::File.read(path_root)
-        content = content.gsub(/mount Elblog::Engine => \'(\/|)[a-zA-z0-9]*\'(\\n|)/, '')
+        regex = %r{mount Elblog::Engine => \'(\/|)[a-zA-z0-9]*\'(\\n|)}
+        content = content.gsub(regex, '')
         ::File.write(path_root, content)
         route "mount Elblog::Engine => '#{mount_path}'"
       end
