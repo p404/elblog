@@ -7,6 +7,7 @@ pkg/
 
 tmp/
 !spec/tmp/
+spec/tmp/config/routes.rb
 db/
 # MAC SHIT
 .DS_Store

@@ -2,11 +2,6 @@ module Elblog
   # Application Helper
   # Provides generic methods helpers to the application
   module ApplicationHelper
-<<<<<<< HEAD
-    routes = Rails.application.routes.routes
-    debugger
-    ROUTE_NAME_ELBLOG = routes.find { |r| r.app.app == Elblog::Engine }.name
-=======
     case ENV['RAILS_VERSION']
     when 'default'
       routes = Rails.application.routes.routes
@@ -23,6 +18,5 @@ module Elblog
     else
       fail "ELblog does not support RAILS #{ENV['RAILS_VERSION']}"
     end
->>>>>>> master
   end
 end
