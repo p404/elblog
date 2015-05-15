@@ -35,4 +35,6 @@ group :development, :test do
   gem 'rubocop'
 
   gem 'spring'
+
+  gem 'generator_spec'
 end
