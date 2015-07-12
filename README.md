@@ -1,9 +1,6 @@
 [![Build Status](https://travis-ci.org/p404/elblog.svg?branch=master)](https://travis-ci.org/p404/elblog)
 [![Test Coverage](https://codeclimate.com/github/p404/elblog/badges/coverage.svg)](https://codeclimate.com/github/p404/elblog)
 [![Code Climate](https://codeclimate.com/github/p404/elblog/badges/gpa.svg)](https://codeclimate.com/github/p404/elblog)
-<p align="center">
-    <img src="http://www.lataco.com/wp-content/uploads/15askamexican.jpg" width="190px"/>
-</p>
 
 *Elblog* es un blog minimo hecho desde un rails engine, que usa las siguientes gemas: 
 
